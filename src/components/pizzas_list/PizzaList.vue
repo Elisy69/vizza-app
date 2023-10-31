@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import type { Ref } from "vue";
-import { supabase } from "../../lib/supabaseClient.ts";
+import { supabase } from "@supabaseClient/supabaseClient";
 import PizzaItem from "./PizzaItem.vue";
 import { Pizza } from "src/types.ts";
 
@@ -44,3 +44,4 @@ onMounted(() => {
   @include mixins.mq (lg)
     gap: 4rem
 </style>
+../../lib/supabase/supabaseClient.ts

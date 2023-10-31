@@ -9,6 +9,7 @@ export default defineConfig({
       "@pages": "/src/views",
       "@abstracts": "/src/style/abstracts",
       "@composables": "/src/composables",
+      "@supabaseClient": "/src/lib/supabase",
     },
   },
 });

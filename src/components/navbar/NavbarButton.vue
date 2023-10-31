@@ -28,7 +28,7 @@ function getRouteName(buttonName: string) {
   <RouterLink
     class="routerLink"
     :to="{ name: `${getRouteName(name)}` }"
-    @click="name === 'Login' && openModal()"
+    @click="name === 'Login' && openModal('login')"
   >
     <span>{{ name }}</span>
   </RouterLink>

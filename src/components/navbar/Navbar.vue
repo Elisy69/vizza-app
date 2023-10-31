@@ -1,12 +1,34 @@
 <script lang="ts" setup>
+import { computed, ref, watchEffect } from "vue";
 import NavbarButton from "./NavbarButton.vue";
+import { useAuth } from "@composables/useAuth";
 
-const BUTTONS_NAMES = ["Pizzas 🍕", "About us", "Delivery", "Cart 🛒", "Login"];
+const { isLoggedIn } = useAuth();
+
+const loginButtonName = computed(() => {
+  return isLoggedIn.value ? "Account" : "Login";
+});
+
+const BUTTONS_NAMES = ref([
+  "Pizzas 🍕",
+  "About us",
+  "Delivery",
+  "Cart 🛒",
+  loginButtonName.value,
+]);
+
+watchEffect(() => {
+  BUTTONS_NAMES.value[BUTTONS_NAMES.value.length - 1] = loginButtonName.value;
+});
 </script>
 
 <template>
   <nav class="navbar">
-    <NavbarButton v-for="button in BUTTONS_NAMES" :name="button" />
+    <NavbarButton
+      v-for="(button, index) in BUTTONS_NAMES"
+      :key="index"
+      :name="button"
+    />
   </nav>
 </template>
 
@@ -23,7 +45,6 @@ const BUTTONS_NAMES = ["Pizzas 🍕", "About us", "Delivery", "Cart 🛒", "Logi
     display: flex
     @include mixins.custom-box-shadow
     @include mixins.mq (xs)
-
     @include mixins.mq (sm)
 
 .routerLink:last-child

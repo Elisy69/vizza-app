@@ -1,7 +1,23 @@
 <script setup lang="ts">
 import Navbar from "@components/navbar/Navbar.vue";
 import Footer from "@components/footer/Footer.vue";
+import { onMounted } from "vue";
 import { RouterView } from "vue-router";
+import { useAuth } from "@composables/useAuth";
+import { supabase } from "@supabaseClient/supabaseClient";
+
+const { setUser, isLoggedIn } = useAuth();
+
+const authStatusListener = () => {
+  supabase.auth.onAuthStateChange((_, session) => {
+    session ? setUser(session.user) : setUser(null);
+    console.log("is user logged in?", isLoggedIn.value);
+  });
+};
+
+onMounted(() => {
+  authStatusListener();
+});
 </script>
 
 <template>
@@ -28,3 +44,4 @@ import { RouterView } from "vue-router";
     background-color: white
     padding: 1rem
 </style>
+./lib/supabase/supabaseClient

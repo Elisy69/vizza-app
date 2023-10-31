@@ -1,17 +1,15 @@
-import { ref } from "vue";
+import { reactive } from "vue";
 
-const isOpen = ref(false);
+const isOpen = reactive({ login: false });
 
 export function useModal() {
   const closeModal = () => {
-    console.log("modal closed");
-
-    isOpen.value = false;
+    Object.keys(isOpen).forEach((key) => {
+      isOpen[key] = false;
+    });
   };
-  const openModal = () => {
-    console.log("modal opened");
-
-    isOpen.value = true;
+  const openModal = (type) => {
+    isOpen[type] = true;
   };
   return {
     isOpen,

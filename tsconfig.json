@@ -11,7 +11,8 @@
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/views/*"],
       "@abstracts/*": ["./src/style/abstracts/*"],
-      "@composables/*": ["./src/composables/*"]
+      "@composables/*": ["./src/composables/*"],
+      "@supabaseClient/*": ["./src/lib/supabase/*"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -32,7 +33,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/lib/supabaseClient.ts"
+    "src/lib/supabase/supabaseClient.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

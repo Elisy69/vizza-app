@@ -8,3 +8,25 @@
 
 @mixin custom-box-shadow
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px
+
+@mixin vueTransition 
+    .nested-enter-active
+      transition: all 0.3s ease-in-out
+
+    .nested-leave-active
+      transition: all 0.3s ease-in-out
+      transition-delay: 0.25s
+
+    .nested-enter-from, .nested-leave-to
+      transform: translateY(30px)
+      opacity: 0
+
+    .nested-enter-active .inner, .nested-leave-active .inner
+      transition: all 0.3s ease-in-out
+
+    .nested-enter-active .inner
+      transition-delay: 0.25s
+
+    .nested-enter-from .inner, .nested-leave-to .inner
+      transform: translateX(30px)
+      opacity: 0.001
