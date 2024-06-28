@@ -10,6 +10,7 @@ export default defineConfig({
       "@abstracts": "/src/style/abstracts",
       "@composables": "/src/composables",
       "@supabaseClient": "/src/lib/supabase",
+      "@store": "/src/store",
     },
   },
 });
