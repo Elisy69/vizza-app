@@ -1,5 +1,5 @@
-import { useUserStore } from "@store/user";
 import { storeToRefs } from "pinia";
+import { useUserStore } from "/Users/strashevskyelisey/Desktop/coding/Projects/vizza/src/store/user.ts";
 
 export function useAuth() {
   let userStore = useUserStore();

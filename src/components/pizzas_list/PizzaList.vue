@@ -44,3 +44,4 @@ onMounted(() => {
   @include mixins.mq (lg)
     gap: 4rem
 </style>
+../../lib/supabase/supabaseClient.ts

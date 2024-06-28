@@ -2,11 +2,10 @@
 import BaseButton from "./../BaseButton.vue";
 import { ref } from "vue";
 import Loading from "./../Loading.vue";
-import { useUserStore } from "@store/user";
-const userStore = useUserStore();
+
 const isLoaded = ref(false);
 
-defineProps<{
+const props = defineProps<{
   id: number;
   imageUrl: string;
   ingredients: string;
@@ -32,17 +31,7 @@ function hideLoading() {
       <p class="pizzaIngredients">{{ ingredients }}</p>
       <menu class="pizzaMenu">
         <span class="pizzaCost">{{ totalCost }}</span>
-        <BaseButton
-          @click="
-            userStore.addToCart({
-              id: id,
-              image_url: imageUrl,
-              ingredients: ingredients,
-              name: name,
-              total_cost: totalCost,
-            })
-          "
-        />
+        <BaseButton />
       </menu>
     </section>
   </div>
